@@ -1,6 +1,125 @@
+:root {
+  --theme-color-1: #20282c;
+  --theme-color-2: #bbc5ca;
+  --theme-color-3: #81b2c9;
+  --theme-color-4: #f2962f;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: cursive;
+}
+
+body {
+  background-color: var(--theme-color-1);
+  color: var(--theme-color-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* scrollbar */
+/* Firefox */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: var(--theme-color-2);
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 4px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--theme-color-2);
+  border-radius: 10px;
+}
+
+/* timer */
+.timer {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 25px;
+}
+
+/* counter */
+.timer__counter {
+  font-size: 2.5rem;
+  height: 200px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 8px solid var(--theme-color-2);
+  border-radius: 50%;
+}
+
+.timer__counter small {
+  font-size: 1.25rem;
+}
+
+/* laps */
+.timer__laps-list {
+  padding: 0 10px;
+  max-height: 250px;
+  overflow-y: scroll;
+}
+
+.timer__laps-list li {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.timer__laps-list li:not(:last-child) {
+  margin-bottom: 5px;
+}
+
+/* actions */
+.timer__actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+}
+
+.timer__actions button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  width: 48px;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--theme-color-4);
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.5rem;
+  transition: color ease-in-out 0.15s;
+}
+
+.timer__actions button:hover {
+  color: #000;
+}
+
+.timer__actions button:nth-child(2) {
+  width: 72px;
+  height: 72px;
+  background-color: var(--theme-color-3);
+  color: #000;
+}
+
+.timer__actions button:nth-child(2):hover {
+  color: #fff;
 }
