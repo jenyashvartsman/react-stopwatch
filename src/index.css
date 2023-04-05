@@ -47,8 +47,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
-  gap: 25px;
+  justify-content: center;
+  gap: 40px;
 }
 
 /* counter */
@@ -118,8 +118,22 @@ body {
   height: 72px;
   background-color: var(--theme-color-3);
   color: #000;
+  transition: all ease-in 0.15s;
 }
 
 .timer__actions button:nth-child(2):hover {
   color: #fff;
+}
+
+.timer__actions.running button:nth-child(2) {
+  border-radius: 8px;
+  width: 96px;
+}
+
+.timer__actions button:nth-child(3) {
+  visibility: hidden;
+}
+
+.timer__actions.running button:nth-child(3) {
+  visibility: visible;
 }

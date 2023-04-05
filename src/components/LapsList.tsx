@@ -1,31 +1,21 @@
-const LapsList = () => {
+import { millisecondsToTimeStr } from "../util/util";
+
+interface LapsListProps {
+  laps: number[];
+}
+
+const LapsList = ({ laps }: LapsListProps) => {
   return (
     <ul className="timer__laps-list">
-      <li>
-        <span>#5</span>
-        <span>0:00:52</span>
-        <span>0:10:75</span>
-      </li>
-      <li>
-        <span>#4</span>
-        <span>0:02:55</span>
-        <span>0:10:23</span>
-      </li>
-      <li>
-        <span>#3</span>
-        <span>0:02:43</span>
-        <span>0:07:67</span>
-      </li>
-      <li>
-        <span>#2</span>
-        <span>0:02:07</span>
-        <span>0:05:23</span>
-      </li>
-      <li>
-        <span>#1</span>
-        <span>0:03:15</span>
-        <span>0:03:15</span>
-      </li>
+      {laps.map((lap, index) => (
+        <li key={lap}>
+          <span>#{index + 1}</span>
+          <span>
+            {millisecondsToTimeStr(index === 0 ? lap : lap - laps[index - 1])}
+          </span>
+          <span>{millisecondsToTimeStr(lap)}</span>
+        </li>
+      ))}
     </ul>
   );
 };

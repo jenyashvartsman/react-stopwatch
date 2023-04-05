@@ -1,8 +1,21 @@
-const Counter = () => {
+import {
+  millisecondsToMinutesToStr,
+  millisecondsToSecondsToStr,
+  millisecondsToStr,
+} from "../util/util";
+
+interface CounterProps {
+  counter: number;
+}
+
+const Counter = ({ counter }: CounterProps) => {
   return (
     <div className="timer__counter">
-      <span>0:10</span>
-      <small>75</small>
+      <span>
+        {millisecondsToMinutesToStr(counter)}:
+        {millisecondsToSecondsToStr(counter)}
+      </span>
+      <small>{millisecondsToStr(counter)}</small>
     </div>
   );
 };
